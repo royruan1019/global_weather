@@ -4,18 +4,42 @@
 
 🔗 **線上體驗：[global-weather-beta.vercel.app](https://global-weather-beta.vercel.app/)**
 
-## 運作流程
+## 專案規劃與開發流程
 
 ```mermaid
 flowchart TD
-    A[使用者開啟網站] --> B["載入 Windy 互動地圖<br/>預設台灣 lat 23.5, lon 121, zoom 5"]
-    B --> C{"地圖 zoom ≥ 6？"}
-    C -- 否 --> B
-    C -- 是 --> D["顯示一週天氣預報面板<br/>預設臺中市"]
-    D --> E[使用者切換縣市下拉選單]
-    E --> F["呼叫 CWA API<br/>F-D0047-091"]
-    F --> G["解析並顯示<br/>天氣／高溫／低溫／降雨機率"]
-    G --> E
+    subgraph P1["① 規劃"]
+        A["需求確認<br/>地圖規格、CWA 資料集、部署方式"]
+    end
+
+    subgraph P2["② 開發"]
+        B["建立 React + Vite 專案骨架"]
+        C["串接 Windy 地圖<br/>動態載入 Leaflet + libBoot.js"]
+        D["串接 CWA 一週預報 API"]
+    end
+
+    subgraph P3["③ 除錯與調整"]
+        E["修正資料集<br/>F-D0047-089 → F-D0047-091"]
+        F["排除 Windy 網域白名單錯誤"]
+        G["確認圖層方案限制<br/>改用 wind 取代 satellite"]
+    end
+
+    subgraph P4["④ 上線"]
+        H["git push 到 GitHub"]
+        I["部署 Vercel<br/>設定環境變數"]
+        J["補上正式網域白名單<br/>驗證正式環境"]
+    end
+
+    A --> B --> C --> D --> E --> F --> G --> H --> I --> J
+
+    classDef plan fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
+    classDef build fill:#dcfce7,stroke:#16a34a,color:#14532d
+    classDef debug fill:#fef3c7,stroke:#d97706,color:#78350f
+    classDef ship fill:#fce7f3,stroke:#db2777,color:#831843
+    class A plan
+    class B,C,D build
+    class E,F,G debug
+    class H,I,J ship
 ```
 
 ## 技術棧

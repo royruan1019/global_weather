@@ -2,6 +2,22 @@
 
 氣象衛星雲圖網站，主畫面為 Windy 互動地圖，縮放到一定程度後顯示台灣一週天氣預報面板。
 
+🔗 **線上體驗：[global-weather-beta.vercel.app](https://global-weather-beta.vercel.app/)**
+
+## 運作流程
+
+```mermaid
+flowchart TD
+    A[使用者開啟網站] --> B["載入 Windy 互動地圖<br/>預設台灣 lat 23.5, lon 121, zoom 5"]
+    B --> C{"地圖 zoom ≥ 6？"}
+    C -- 否 --> B
+    C -- 是 --> D["顯示一週天氣預報面板<br/>預設臺中市"]
+    D --> E[使用者切換縣市下拉選單]
+    E --> F["呼叫 CWA API<br/>F-D0047-091"]
+    F --> G["解析並顯示<br/>天氣／高溫／低溫／降雨機率"]
+    G --> E
+```
+
 ## 技術棧
 
 - React + Vite

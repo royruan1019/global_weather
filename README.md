@@ -1,4 +1,4 @@
-# global_weather
+# Global_Weather
 
 氣象衛星雲圖網站，主畫面為 Windy 互動地圖，縮放到一定程度後顯示台灣一週天氣預報面板。
 

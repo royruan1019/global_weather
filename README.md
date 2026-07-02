@@ -7,13 +7,19 @@
 ## 專案規劃與開發流程
 
 ```mermaid
-flowchart LR
-    A["① 規劃<br/>需求確認：地圖規格、CWA 資料集、部署方式"]
-    B["② 開發<br/>建立骨架、串接 Windy 地圖、串接 CWA 預報"]
-    C["③ 除錯<br/>修正資料集 089→091、排除網域白名單、圖層限制改用 wind"]
-    D["④ 上線<br/>push GitHub、部署 Vercel、補網域白名單並驗證"]
+flowchart TD
+    subgraph Row1[ ]
+        direction LR
+        A["① 規劃<br/>需求確認：地圖規格、CWA 資料集、部署方式"] --> B["② 開發<br/>建立骨架、串接 Windy 地圖、串接 CWA 預報"]
+    end
+    subgraph Row2[ ]
+        direction LR
+        C["③ 除錯<br/>修正資料集 089→091、排除網域白名單、圖層限制改用 wind"] --> D["④ 上線<br/>push GitHub、部署 Vercel、補網域白名單並驗證"]
+    end
+    B --> C
 
-    A --> B --> C --> D
+    style Row1 fill:none,stroke:none
+    style Row2 fill:none,stroke:none
 
     classDef plan fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
     classDef build fill:#dcfce7,stroke:#16a34a,color:#14532d

@@ -8,34 +8,21 @@
 
 ```mermaid
 flowchart LR
-    subgraph P1["① 規劃"]
-        A["需求確認<br/>規格/資料集/部署"]
-    end
+    A["① 規劃<br/>需求確認：地圖規格、CWA 資料集、部署方式"]
+    B["② 開發<br/>建立骨架、串接 Windy 地圖、串接 CWA 預報"]
+    C["③ 除錯<br/>修正資料集 089→091、排除網域白名單、圖層限制改用 wind"]
+    D["④ 上線<br/>push GitHub、部署 Vercel、補網域白名單並驗證"]
 
-    subgraph P2["② 開發"]
-        B["建立骨架"] --> C["串接 Windy"] --> D["串接 CWA"]
-    end
-
-    subgraph P3["③ 除錯"]
-        E["修正資料集<br/>089 → 091"] --> F["排除網域<br/>白名單錯誤"] --> G["圖層限制<br/>改用 wind"]
-    end
-
-    subgraph P4["④ 上線"]
-        H["push GitHub"] --> I["部署 Vercel"] --> J["補網域白名單<br/>驗證正式環境"]
-    end
-
-    A --> B
-    D --> E
-    G --> H
+    A --> B --> C --> D
 
     classDef plan fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
     classDef build fill:#dcfce7,stroke:#16a34a,color:#14532d
     classDef debug fill:#fef3c7,stroke:#d97706,color:#78350f
     classDef ship fill:#fce7f3,stroke:#db2777,color:#831843
     class A plan
-    class B,C,D build
-    class E,F,G debug
-    class H,I,J ship
+    class B build
+    class C debug
+    class D ship
 ```
 
 ## 技術棧

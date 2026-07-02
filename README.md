@@ -7,30 +7,26 @@
 ## 專案規劃與開發流程
 
 ```mermaid
-flowchart TD
+flowchart LR
     subgraph P1["① 規劃"]
-        A["需求確認<br/>地圖規格、CWA 資料集、部署方式"]
+        A["需求確認<br/>規格/資料集/部署"]
     end
 
     subgraph P2["② 開發"]
-        B["建立 React + Vite 專案骨架"]
-        C["串接 Windy 地圖<br/>動態載入 Leaflet + libBoot.js"]
-        D["串接 CWA 一週預報 API"]
+        B["建立骨架"] --> C["串接 Windy"] --> D["串接 CWA"]
     end
 
-    subgraph P3["③ 除錯與調整"]
-        E["修正資料集<br/>F-D0047-089 → F-D0047-091"]
-        F["排除 Windy 網域白名單錯誤"]
-        G["確認圖層方案限制<br/>改用 wind 取代 satellite"]
+    subgraph P3["③ 除錯"]
+        E["修正資料集<br/>089 → 091"] --> F["排除網域<br/>白名單錯誤"] --> G["圖層限制<br/>改用 wind"]
     end
 
     subgraph P4["④ 上線"]
-        H["git push 到 GitHub"]
-        I["部署 Vercel<br/>設定環境變數"]
-        J["補上正式網域白名單<br/>驗證正式環境"]
+        H["push GitHub"] --> I["部署 Vercel"] --> J["補網域白名單<br/>驗證正式環境"]
     end
 
-    A --> B --> C --> D --> E --> F --> G --> H --> I --> J
+    A --> B
+    D --> E
+    G --> H
 
     classDef plan fill:#e0f2fe,stroke:#0284c7,color:#0c4a6e
     classDef build fill:#dcfce7,stroke:#16a34a,color:#14532d

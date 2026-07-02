@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", "Microsoft JhengHei", sans-serif;
+  background: #101922;
+  color: #e6edf3;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.windy-map {
+  width: 100%;
+  height: 80vh;
+}
+
+.forecast-panel {
+  padding: 16px 24px;
+  background: #16212c;
+  border-top: 2px solid #2a3946;
+}
+
+.forecast-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.forecast-panel__header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.forecast-panel__header select {
+  padding: 6px 10px;
+  background: #1e2b38;
+  color: #e6edf3;
+  border: 1px solid #2a3946;
+  border-radius: 4px;
+}
+
+.forecast-panel__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.forecast-panel__table th,
+.forecast-panel__table td {
+  padding: 8px 12px;
+  text-align: center;
+  border-bottom: 1px solid #2a3946;
+}
+
+.forecast-panel__error {
+  color: #ff6b6b;
+}

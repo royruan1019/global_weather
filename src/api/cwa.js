@@ -1,4 +1,4 @@
-const BASE_URL = 'https://opendata.cwa.gov.tw/api/v1/rest/datastore/F-D0047-091'
+const BASE_URL = '/cwa-api/api/v1/rest/datastore/F-D0047-091'
 
 const ELEMENT_NAME = {
   Wx: '天氣現象',

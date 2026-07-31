@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/cwa-api/:path*",
+      "destination": "https://opendata.cwa.gov.tw/:path*"
+    }
+  ]
+}
